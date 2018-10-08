@@ -1,7 +1,6 @@
 const redux = require('redux');
 const actionType = require('./actionTypes');
 
-
 const initialState = { todos: [] }
 
 const myReducer =(state=initialState, action) =>{
@@ -23,9 +22,9 @@ const myReducer =(state=initialState, action) =>{
 
 const store = redux.createStore(myReducer);
 
-console.log(store.getState());
-
+const addToDo = task => store.dispatch({type:actionType.ADD_TODO, text:task});
+addToDo('Wash Car');
+addToDo('Paint Garage');
 store.dispatch({type:actionType.ADD_TODO, text:`clean garage`});
-store.dispatch({type:actionType.ADD_TODO, text:`wash car`});
 store.dispatch({type:actionType.REMOVE_TODO, index:0});
 
